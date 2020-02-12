@@ -58,6 +58,7 @@ class DependencyResolutionTests: XCTestCase {
         }
     }
 
+  #if !os(Linux)
     func testExternalComplex() {
         fixture(name: "DependencyResolution/External/Complex") { prefix in
             XCTAssertBuilds(prefix.appending(component: "app"))
@@ -65,4 +66,5 @@ class DependencyResolutionTests: XCTestCase {
             XCTAssertEqual(output, "♣︎K\n♣︎Q\n♣︎J\n♣︎10\n♣︎9\n♣︎8\n♣︎7\n♣︎6\n♣︎5\n♣︎4\n")
         }
     }
+  #endif
 }

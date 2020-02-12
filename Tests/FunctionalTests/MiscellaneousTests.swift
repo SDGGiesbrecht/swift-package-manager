@@ -54,6 +54,7 @@ class MiscellaneousTestCase: XCTestCase {
         }
     }
 
+    #if !os(Linux)
     func testCanBuildMoreThanTwiceWithExternalDependencies() {
 
         // running `swift build` multiple times should not fail
@@ -66,6 +67,7 @@ class MiscellaneousTestCase: XCTestCase {
             XCTAssertBuilds(prefix.appending(component: "app"))
         }
     }
+    #endif
 
     func testNoArgumentsExitsWithOne() {
         var foo = false

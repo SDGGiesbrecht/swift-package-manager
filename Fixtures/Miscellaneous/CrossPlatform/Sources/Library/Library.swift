@@ -1,0 +1,25 @@
+/*
+ This source file is part of the Swift.org open source project
+
+ Copyright (c) 2014 - 2020 Apple Inc. and the Swift project authors
+ Licensed under Apache License v2.0 with Runtime Library Exception
+
+ See http://swift.org/LICENSE.txt for license information
+ See http://swift.org/CONTRIBUTORS.txt for Swift project authors
+*/
+
+import Foundation
+import Dispatch
+
+import CLibrary
+
+public func helloWorld() {
+  print("Hello, world!")
+  helloC()
+  print(NSString(string: "Hello, Foundation!"))
+  print(DispatchQueue(label: "Hello, Dispatch!"))
+}
+
+internal func helloTests() {
+  print("Hello, tests!")
+}

@@ -42,6 +42,7 @@ class CFamilyTargetTestCase: XCTestCase {
         }
     }
 
+  #if !os(Linux)
     func testCUsingCAndSwiftDep() {
         fixture(name: "DependencyResolution/External/CUsingCDep") { prefix in
             let packageRoot = prefix.appending(component: "Bar")
@@ -53,7 +54,9 @@ class CFamilyTargetTestCase: XCTestCase {
             XCTAssertEqual(GitRepository(path: path).tags, ["1.2.3"])
         }
     }
+  #endif
 
+  #if !os(Linux)
     func testModuleMapGenerationCases() {
         fixture(name: "CFamilyTargets/ModuleMapGenerationCases") { prefix in
             XCTAssertBuilds(prefix)
@@ -64,6 +67,7 @@ class CFamilyTargetTestCase: XCTestCase {
             XCTAssertDirectoryContainsFile(dir: debugPath, filename: "UmbrellaHeader.c.o")
         }
     }
+  #endif
 
     func testCanForwardExtraFlagsToClang() {
         // Try building a fixture which needs extra flags to be able to build.
