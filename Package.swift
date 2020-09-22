@@ -233,7 +233,7 @@ let package = Package(
 if ProcessInfo.processInfo.environment["SWIFTPM_LLBUILD_FWK"] == nil {
     if ProcessInfo.processInfo.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil {
         package.dependencies += [
-            .package(url: "https://github.com/apple/swift-llbuild.git", .branch("master")),
+            .package(url: "https://github.com/SDGGiesbrecht/swift-llbuild.git", .exact(Version(0, 50300, 0))),
         ]
     } else {
         // In Swift CI, use a local path to llbuild to interoperate with tools
@@ -247,7 +247,7 @@ if ProcessInfo.processInfo.environment["SWIFTPM_LLBUILD_FWK"] == nil {
 
 if ProcessInfo.processInfo.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil {
     package.dependencies += [
-        .package(url: "https://github.com/apple/swift-tools-support-core.git", .branch("master")),
+        .package(url: "https://github.com/apple/swift-tools-support-core.git", .exact(Version(0, 1, 10))),
     ]
 } else {
     package.dependencies += [
