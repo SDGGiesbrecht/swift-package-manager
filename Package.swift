@@ -307,7 +307,7 @@ if ProcessInfo.processInfo.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil {
         // used by 'swift-driver' and 'sourcekit-lsp'. Please coordinate
         // dependency version changes here with those projects.
         .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "0.3.1")),
-        .package(url: "https://github.com/apple/swift-driver.git", .branch(relatedDependenciesBranch)),
+        .package(url: "https://github.com/SDGGiesbrecht/swift-driver.git", .exact("0.50400.0")),
     ]
 } else {
     package.dependencies += [
